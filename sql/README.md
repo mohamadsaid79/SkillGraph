@@ -1,0 +1,48 @@
+# SkillGraph
+
+Mining relationships between job skills and career paths.
+
+SkillGraph is a data mining project for analyzing job advertisements, preparing a data warehouse, and discovering skills that frequently appear together. It is developed independently of **Carevo**, the Laravel recruitment platform that can later display its results.
+
+This guide documents the initial development environment. The smoke test below verifies Python imports and output storage; it does not implement ETL, mining, or a database connection. MySQL integration is a later step.
+
+## Run with Docker
+
+### 1. Prerequisites
+
+Install Git and Docker Desktop. Start Docker Desktop with Linux containers enabled.
+
+### 2. Clone the repository
+
+Replace `https://github.com/mohamadsaid79/SkillGraph` with the repository's HTTPS URL:
+
+```bash
+git clone https://github.com/mohamadsaid79/SkillGraph
+cd SkillGraph
+```
+
+### 3. Build the image
+
+```bash
+docker compose build
+```
+
+This downloads the Python base image and installs the project dependencies. The first build requires an internet connection and may take a few minutes.
+
+### 4. Run the project
+
+```bash
+docker compose run --rm skillgraph
+```
+
+Generated results are saved in the local `outputs` folder. The container exits when the script finishes.
+
+### After pulling updates
+
+```bash
+git pull
+docker compose build
+docker compose run --rm skillgraph
+```
+
+Python and its libraries run inside Docker; you do not need to install them on your computer.

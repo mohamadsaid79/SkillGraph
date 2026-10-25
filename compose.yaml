@@ -1,0 +1,8 @@
+services:
+  skillgraph:
+    build: .
+    working_dir: /app
+    volumes:
+      - ./src:/app/src
+      - ./data:/app/data
+      - ./outputs:/app/outputs
